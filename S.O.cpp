@@ -16,7 +16,6 @@ int main()
 
     int Tabla[CantidadProcesos][5];
 
-    // Leer tiempos de llegada y ejecución
     for (int i = 0; i < CantidadProcesos; ++i)
     {
         cout << "Ingresa tiempo de llegada del proceso " << i + 1 << " : ";
@@ -99,18 +98,17 @@ int main()
 
         if (idx == -1)
         {
-            TiempoActual++; // Avanzar el tiempo si no hay procesos listos para ejecutar
+            TiempoActual++; 
             continue;
         }
 
-        // Ejecutar el proceso seleccionado
         TiempoInicio = TiempoActual;
         TiempoFinalizacion = TiempoInicio + Tabla[idx][1];
         TiempoRetorno = TiempoFinalizacion - Tabla[idx][0];
         TiempoEspera = TiempoInicio - Tabla[idx][0];
 
-        Tabla[idx][2] = TiempoRetorno;   // Tiempo de retorno
-        Tabla[idx][3] = TiempoEspera;    // Tiempo de espera
+        Tabla[idx][2] = TiempoRetorno;
+        Tabla[idx][3] = TiempoEspera;
 
         TiempoRetornoTotal += TiempoRetorno;
         TiempoActual = TiempoFinalizacion;
@@ -153,7 +151,6 @@ int main()
         {
             if (!terminado[i] && Tabla[i][0] <= TiempoActual)
             {
-                // Seleccionar el proceso con el menor tiempo de ejecución
                 if (Tabla[i][1] < minTiempoEjecucion)
                 {
                     minTiempoEjecucion = Tabla[i][1];
@@ -164,18 +161,17 @@ int main()
 
         if (idx == -1)
         {
-            TiempoActual++; // Avanzar el tiempo si no hay procesos listos para ejecutar
+            TiempoActual++; 
             continue;
         }
 
-        // Ejecutar el proceso seleccionado
         TiempoInicio = TiempoActual;
         TiempoFinalizacion = TiempoInicio + Tabla[idx][1];
         TiempoRetorno = TiempoFinalizacion - Tabla[idx][0];
         TiempoEspera = TiempoInicio - Tabla[idx][0];
 
-        Tabla[idx][2] = TiempoRetorno;   // Tiempo de retorno
-        Tabla[idx][3] = TiempoEspera;    // Tiempo de espera
+        Tabla[idx][2] = TiempoRetorno;
+        Tabla[idx][3] = TiempoEspera;
 
         TiempoRetornoTotal += TiempoRetorno;
         TiempoActual = TiempoFinalizacion;
